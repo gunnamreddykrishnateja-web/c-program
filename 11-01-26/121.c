@@ -1,0 +1,23 @@
+#include <stdio.h>
+int fact(int x){
+    int f=1;
+    for(int i=1;i<=x;i++)
+        f*=i;
+    return f;
+}
+int main(){
+    int n,r,sum=0,temp;
+    scanf("%d",&n);
+    temp=n;
+    while(n>0){
+        r=n%10;
+        sum+=fact(r);
+        n/=10;
+    }
+    if(sum==temp)
+        printf("Strong");
+    else
+        printf("Not Strong");
+
+    return 0;
+}
