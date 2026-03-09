@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<limits.h>
 int main() {
     int r,c;
     scanf("%d%d",&r,&c);
@@ -8,22 +9,23 @@ int main() {
             scanf("%d",&arr[i][j]);
         }
     }
-    int max=0,value=0;
-    
+    int max=INT_MIN,b;
     for(int i=0;i<r;i++){
         int count=0;
         for(int j=0;j<c;j++){
-            for(int k=j+1;k<r;k++){
-                if(arr[i][j]==arr[i][k]){
-                    count++;
+            for(int k=0;k<r;k++){
+                for (int l=0;l<c;l++){
+                    if(arr[i][j]==arr[k][l]){
+                        count++;
+                    }
                 }
             }
-            if(count!=0&&count>max){
-                value=arr[i][j];
+            if(count>max){
+                max=count;
+                b=arr[i][j];
             }
         }
-        
     }
-   printf("     %d",value);
+   printf("     %d",b);
     return 0;
 }

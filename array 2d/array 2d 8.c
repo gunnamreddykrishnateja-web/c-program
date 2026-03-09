@@ -8,22 +8,22 @@ int main() {
             scanf("%d",&arr[i][j]);
         }
     }
-    int max=0,value=0;
+    int count=0;
     
     for(int i=0;i<r;i++){
-        int count=0;
+        int even_count=0,odd_count=0;
         for(int j=0;j<c;j++){
-            for(int k=j+1;k<r;k++){
-                if(arr[i][j]==arr[i][k]){
-                    count++;
-                }
+            if(arr[i][j]%2==0){
+                even_count++;
             }
-            if(count!=0&&count>max){
-                value=arr[i][j];
+            else{
+                odd_count++;
             }
         }
-        
+        if(even_count==odd_count){
+               count++;
+            }
     }
-   printf("     %d",value);
+   printf("     %d",count);
     return 0;
 }
